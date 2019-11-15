@@ -1,7 +1,7 @@
 const { Movie, validate } = require("../models/movie");
 const { Genre } = require("../models/genre");
 const mongoose = require("mongoose");
-const express = requireI("express");
+const express = require("express");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 
   const genre = await Genre.findById(req.body.genreId);
   if (!genre) return res.status(400).send("Invalid genre.");
-  let movie = new Movie({
+  const movie = new Movie({
     title: req.body.title,
     genre: {
       _id: genre._id,

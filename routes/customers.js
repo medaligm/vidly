@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
   });
   customer = await customer.save();
 
-  req.send(customer);
+  res.send(customer);
 });
 
 router.put("/:id", async (req, res) => {
